@@ -1,0 +1,121 @@
+// start the logo style
+.main_navbar {
+  @include set_oneSide_border(bottom, 1px, #1618231f);
+  box-shadow: 0 0 3px #0000000a;
+  .navbar_content {
+    @include centeringFlex_space(space-between);
+  }
+  .logo_holder {
+    .main_logo {
+      width: 120px;
+    }
+  }
+  .search_container {
+    @media (max-width: 768px) {
+      & {
+        display: none
+      }
+    }
+    .search_holder {
+      @include set_oneSide_padding(left, 10px);
+      @include centring_flex;
+      background-color: $ser_ground;
+      .search_inp {
+        @include reset_border_outline;
+        @include set_oneSide_border(right, 1.3px, #1618231f);
+        background: transparent;
+        width: 300px;
+        font-size: 15px;
+        caret-color: rgba(254, 44, 85, 1);
+        line-height: 24.5px;
+        &:focus::placeholder {
+          opacity: 0;
+          transition: $main_transition;
+        }
+      }
+      .searchIcon_holder {
+        @include reset_border_outline;
+        background-color: transparent;
+        padding: 10px 10px 10px 0px;
+        border-radius: 0rem 50rem 50rem 0rem;
+        .search_icon {
+          margin-left: 10px;
+          cursor: pointer;
+          color: #a7a7ab;
+          font-size: 23px;
+        }
+        &:hover {
+          background-color: rgba(22, 24, 35, 0.03);
+        }
+      }
+    }
+  }
+  .buttons_container {
+    @include centeringFlex_space(space-between);
+    .btn_holder {
+      > button {
+        @include centring_flex;
+        width: 110px;
+        height: 35px;
+      }
+      .upload-btn {
+        @include centeringFlex_space(space-evenly);
+        @include set_oneSide_margin(right, 10px);
+        @include setAllSideBorder(1px, $main_color);
+        @include rounded(4px);
+        position: relative;
+        color: $black_color;
+        background-color: $white_color;
+        transition: $main_transition;
+        z-index: 1;
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0%;
+          right: 0%;
+          width: 0%;
+          height: 100%;
+          z-index: -1;
+          background-color: $main_color;
+          transition: $main_transition;
+        }
+        &:hover {
+          color: $white_color;
+        }
+        &:hover .svg {
+          color: $white_color;
+        }
+        &:hover::before {
+          width: 100%;
+        }
+      }
+    }
+    .menu-holder {
+      @include set_oneSide_margin(left, 2px);
+      .dots-icons {
+        width: 15px;
+        height: 25px;
+        font-size: 25px;
+        line-height: 30px;
+        cursor: pointer;
+        color: #7b7d83;
+      }
+    }
+  }
+}
+
+@include breakpoint(xsm) {
+  .buttons_container {
+    justify-content: flex-end !important;
+    flex-wrap: wrap;
+    .btn_holder {
+      > button {
+        width: 90px !important;
+      }
+      .upload-btn {
+        @include set_oneSide_margin(right, 17px !important);
+      }
+    }
+  }
+}
+// start the search input style
